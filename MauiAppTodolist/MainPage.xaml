@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppTodolist.MainPage">
+
+    <StackLayout Padding="10">
+        <Entry x:Name="TaskEntry" Placeholder="Введите задачу" />
+        <Button Text="Добавить" Clicked="OnAddTaskClicked" />
+        <ListView x:Name="TasksListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label Text="{Binding}" HorizontalOptions="Center" FontSize="Medium" FontAutoScalingEnabled="False" FlowDirection="MatchParent" />
+                            <Button Text="X" Clicked="OnDeleteTaskClicked" CommandParameter="{Binding .}" HorizontalOptions="EndAndExpand" Margin="0" MaximumWidthRequest="0" Padding="0"/>
+        
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
